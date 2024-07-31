@@ -2,8 +2,7 @@
 #include <list>
 #include <Windows.h>
 
-// данный класс — переделка примера с https://www.cyberforum.ru/cpp-beginners/thread223822.html
-
+// this class is a reworking of the example from https://www.cyberforum.ru/cpp-beginners/thread223822.html
 class Menu {
 private:
 	std::list<char*> items;
@@ -16,14 +15,14 @@ private:
 	bool isDrawed = 0;
 public:
 	Menu(COORD coords); 
-	//Menu(const Menu& other);                              типа правило пяти
-	//Menu& operator=(const Menu& other);                   но я не уверен что оно здесь нужно
-	//Menu(const Menu&& other);                             вообще мне кажется класс меню должен быть singleton'ом
-	//Menu& operator=(const Menu&& other);                  ведь как это вообще так возможно чтобы в консоли было больше одного меню?)
+	//Menu(const Menu& other);                              like the rule of five
+	//Menu& operator=(const Menu& other);                   but I'm not sure it's necessary here
+	//Menu(const Menu&& other);                             In general, I think the menu class should be a singleton
+	//Menu& operator=(const Menu&& other);                  because how is it even possible to have more than one menu in the console?)
 	//~Menu();
 
-	void add_item(char* itemName);                   //     добавить пункт в меню, после добавления всех пунктов необходимо вызвать draw_menu()
-	void del_item(int numItem);                      //     после каждого вызова функции del_item() необходимо перерисовывать меню последовательными вызовами clear_screen() и draw_menu()
+	void add_item(char* itemName);                   //     add an item to the menu, after all items have been added, call draw_menu()
+	void del_item(int numItem);                      //     after each call of del_item() function it is necessary to redraw the menu by consecutive calls of clear_screen() and draw_menu().
 	void set_cursor(int numItem);
 	void draw_menu();
 	void clear_screen();

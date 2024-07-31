@@ -1,7 +1,7 @@
 #include "Menu.h"
 #include <iostream>
 
-// данный класс Ч переделка примера с https://www.cyberforum.ru/cpp-beginners/thread223822.html
+// this class is a reworking of the example from https://www.cyberforum.ru/cpp-beginners/thread223822.html
 
 Menu::Menu(COORD coords) : countItems(0), latestCursorPos(0), menuCoords(coords) {
 	gout = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -20,7 +20,7 @@ void Menu::del_item(int numItem) {
 	--countItems;
 }
 
-void Menu::set_cursor(int numItem) {                                                                                    // вызывать только после draw_menu() 
+void Menu::set_cursor(int numItem) {                                                                                    // call only after draw_menu() 
 	if (!isDrawed)return;
 	if ((numItem > countItems) || (numItem < 1))return;
 	COORD cursorCoords;
@@ -81,7 +81,7 @@ void Menu::move_down() {
 	else set_cursor(1);
 }
 
-void Menu::set_color(WORD dColor, WORD sColor) {                                                                        // пример: set_color(0x03, 0x2F), вызывать перед draw_menu()
+void Menu::set_color(WORD dColor, WORD sColor) {                                                                        // example: set_color(0x03, 0x2F), call before draw_menu()
 	defaultColor = dColor;
 	selectedColor = sColor;
 }
