@@ -20,7 +20,7 @@ void Menu::del_item(int numItem) {
 	--countItems;
 }
 
-void Menu::set_cursor(int numItem) {                                                                                    // вызывать только после draw_menu()
+void Menu::set_cursor(int numItem) {                                                                                    // вызывать только после draw_menu() 
 	if (!isDrawed)return;
 	if ((numItem > countItems) || (numItem < 1))return;
 	COORD cursorCoords;
