@@ -13,7 +13,6 @@ int main()
     menu.add_item((char*)"Семь Восемь");
     menu.set_color(0x0F, 0x0E);
     menu.draw_menu();
-    menu.set_cursor(1);
     while (1) {
         if ((GetKeyState(VK_UP) == -127) || (GetKeyState(VK_UP) == -128)) {
             menu.move_up();
