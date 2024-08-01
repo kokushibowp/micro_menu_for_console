@@ -16,9 +16,9 @@ private:
 public:
 	Menu(COORD coords); 
 	//Menu(const Menu& other);                              like the rule of five
-	//Menu& operator=(const Menu& other);                   but I'm not sure it's necessary here
-	//Menu(const Menu&& other);                             In general, I think the menu class should be a singleton
-	//Menu& operator=(const Menu&& other);                  because how is it even possible to have more than one menu in the console?)
+	//Menu& operator=(const Menu& other);                   
+	//Menu(const Menu&& other);                             
+	//Menu& operator=(const Menu&& other);                  
 	//~Menu();
 
 	void add_item(char* itemName);                   //     add an item to the menu, after all items have been added, call draw_menu()

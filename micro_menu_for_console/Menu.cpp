@@ -59,6 +59,7 @@ void Menu::draw_menu() {
 		++currentCoords.Y;
 	}
 	isDrawed = 1;
+	set_cursor(1);
 }
 
 void Menu::clear_screen() {
