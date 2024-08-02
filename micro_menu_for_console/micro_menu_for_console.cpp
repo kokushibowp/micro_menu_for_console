@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include "Menu.h"
 
-void CALLBACK menuproc(Menu* menu);
+bool CALLBACK menuproc(Menu* menu);
 
 int main()
 {
@@ -20,10 +20,12 @@ int main()
     menu.menu_processor(&menuproc);
 }
 
-void CALLBACK menuproc(Menu* menu) {
+bool CALLBACK menuproc(Menu* menu) {
     menu->clear_screen();
     std::cout << "какой-то код\nномер выбранного пункта: " << menu->get_cursor_pos() << "\n";
-    system("PAUSE");
+    bool a;
+    std::cin >> a;
     system("CLS");
     menu->draw_menu();
+    return a;
 }

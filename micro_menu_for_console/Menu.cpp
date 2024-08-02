@@ -91,7 +91,7 @@ unsigned int Menu::get_cursor_pos() {
 	return latestCursorPos;
 }
 
-void Menu::menu_processor(void (*f)(Menu* menu)) {
+void Menu::menu_processor(bool (*f)(Menu* menu)) {
 	while (1) {
 		if ((GetKeyState(VK_UP) == -127) || (GetKeyState(VK_UP) == -128)) {
 			move_up();
@@ -102,7 +102,7 @@ void Menu::menu_processor(void (*f)(Menu* menu)) {
 			Sleep(150);
 		}
 		else if ((GetKeyState(VK_RETURN) == -127) || (GetKeyState(VK_RETURN) == -128)) {
-			f(this);
+			if(f(this))return;
 			Sleep(150);
 		}
 	}
