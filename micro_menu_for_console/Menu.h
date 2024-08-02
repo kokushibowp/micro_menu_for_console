@@ -30,4 +30,5 @@ public:
 	void move_down();
 	void set_color(WORD dColor, WORD sColor);
 	unsigned int get_cursor_pos();
+	void menu_processor(void (*f)(Menu* menu));
 };
