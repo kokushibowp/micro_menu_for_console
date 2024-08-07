@@ -15,6 +15,7 @@ private:
 	bool isDrawed = 0;
 public:
 	Menu(COORD coords); 
+	Menu();
 	//Menu(const Menu& other);                              like the rule of five
 	//Menu& operator=(const Menu& other);                   
 	//Menu(const Menu&& other);                             
@@ -31,4 +32,6 @@ public:
 	void set_color(WORD dColor, WORD sColor);
 	unsigned int get_cursor_pos();
 	void menu_processor(bool (*f)(Menu* menu));
+	void set_menu_pos(COORD xy);
+	COORD get_menu_pos();
 };

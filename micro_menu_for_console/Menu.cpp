@@ -7,6 +7,10 @@ Menu::Menu(COORD coords) : countItems(0), latestCursorPos(0), menuCoords(coords)
 	gout = GetStdHandle(STD_OUTPUT_HANDLE);
 }
 
+Menu::Menu() : countItems(0), latestCursorPos(0), menuCoords{ 2, 1 } {
+	gout = GetStdHandle(STD_OUTPUT_HANDLE);
+}
+
 void Menu::add_item(char* itemName) {
 	items.push_back(itemName);
 	
@@ -106,4 +110,12 @@ void Menu::menu_processor(bool (*f)(Menu* menu)) {
 			Sleep(150);
 		}
 	}
+}
+
+void Menu::set_menu_pos(COORD xy) {
+	menuCoords = xy;
+}
+
+COORD Menu::get_menu_pos() {
+	return menuCoords;
 }
