@@ -96,17 +96,18 @@ unsigned int Menu::get_cursor_pos() {
 }
 
 void Menu::menu_processor(bool (*f)(Menu* menu)) {
+	HWND currentWindow = GetForegroundWindow();
 	while (1) {
-		if ((GetKeyState(VK_UP) == -127) || (GetKeyState(VK_UP) == -128)) {
+		if (((GetKeyState(VK_UP) == -127) || (GetKeyState(VK_UP) == -128)) && (currentWindow == GetForegroundWindow())) {
 			move_up();
 			Sleep(150);
 		}
-		else if ((GetKeyState(VK_DOWN) == -127) || (GetKeyState(VK_DOWN) == -128)) {
+		else if (((GetKeyState(VK_DOWN) == -127) || (GetKeyState(VK_DOWN) == -128)) && (currentWindow == GetForegroundWindow())) {
 			move_down();
 			Sleep(150);
 		}
-		else if ((GetKeyState(VK_RETURN) == -127) || (GetKeyState(VK_RETURN) == -128)) {
-			if(f(this))return;
+		else if (((GetKeyState(VK_RETURN) == -127) || (GetKeyState(VK_RETURN) == -128)) && (currentWindow == GetForegroundWindow())) {
+			if (f(this))return;
 			Sleep(150);
 		}
 	}
